@@ -1,0 +1,47 @@
+{
+  "slug": "open-library",
+  "name": "Open Library",
+  "description": "Search millions of books and authors and fetch editions, covers and subjects from the Internet Archive.",
+  "categories": [
+    "books",
+    "data"
+  ],
+  "tags": [
+    "books",
+    "authors",
+    "search",
+    "library"
+  ],
+  "regions": [
+    "global"
+  ],
+  "auth": "none",
+  "cors": true,
+  "license": "Open data",
+  "base_url": "https://openlibrary.org",
+  "docs_url": "https://openlibrary.org/developers/api",
+  "endpoints": [
+    {
+      "name": "Search books",
+      "method": "GET",
+      "path": "/search.json",
+      "summary": "Full text book search",
+      "params": [
+        {
+          "name": "q",
+          "in": "query",
+          "required": true,
+          "example": "the pragmatic programmer",
+          "description": ""
+        },
+        {
+          "name": "limit",
+          "in": "query",
+          "required": false,
+          "example": "3",
+          "description": ""
+        }
+      ]
+    }
+  ]
+}

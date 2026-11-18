@@ -1,0 +1,55 @@
+{
+  "slug": "jsonplaceholder",
+  "name": "JSONPlaceholder",
+  "description": "Fake REST API for testing and prototyping with posts, comments, users and todos.",
+  "categories": [
+    "testing",
+    "backend"
+  ],
+  "tags": [
+    "mock",
+    "fake data",
+    "prototype",
+    "rest"
+  ],
+  "regions": [
+    "global"
+  ],
+  "auth": "none",
+  "cors": true,
+  "license": "MIT",
+  "base_url": "https://jsonplaceholder.typicode.com",
+  "docs_url": "https://jsonplaceholder.typicode.com/guide/",
+  "endpoints": [
+    {
+      "name": "Get post",
+      "method": "GET",
+      "path": "/posts/{id}",
+      "summary": "One post by id",
+      "params": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true,
+          "example": "1",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "name": "List posts",
+      "method": "GET",
+      "path": "/posts",
+      "summary": "Posts, optionally filtered by user",
+      "params": [
+        {
+          "name": "userId",
+          "in": "query",
+          "required": false,
+          "example": "1",
+          "description": ""
+        }
+      ]
+    }
+  ]
+}

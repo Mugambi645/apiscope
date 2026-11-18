@@ -1,0 +1,56 @@
+{
+  "slug": "rest-countries",
+  "name": "REST Countries",
+  "description": "Country data including capitals, currencies, languages, population and flags.",
+  "categories": [
+    "data",
+    "geography"
+  ],
+  "tags": [
+    "countries",
+    "currency",
+    "population",
+    "flags"
+  ],
+  "regions": [
+    "global",
+    "kenya"
+  ],
+  "auth": "none",
+  "cors": true,
+  "license": "MPL-2.0",
+  "base_url": "https://restcountries.com",
+  "docs_url": "https://restcountries.com",
+  "endpoints": [
+    {
+      "name": "By name",
+      "method": "GET",
+      "path": "/v3.1/name/{name}",
+      "summary": "Search a country by name",
+      "params": [
+        {
+          "name": "name",
+          "in": "path",
+          "required": true,
+          "example": "kenya",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "name": "By code",
+      "method": "GET",
+      "path": "/v3.1/alpha/{code}",
+      "summary": "Look up by ISO code",
+      "params": [
+        {
+          "name": "code",
+          "in": "path",
+          "required": true,
+          "example": "KE",
+          "description": ""
+        }
+      ]
+    }
+  ]
+}

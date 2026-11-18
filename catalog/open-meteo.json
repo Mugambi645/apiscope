@@ -1,0 +1,91 @@
+{
+  "slug": "open-meteo",
+  "name": "Open-Meteo",
+  "description": "Free weather forecast API with hourly and daily variables, no API key required for non-commercial use.",
+  "categories": [
+    "weather",
+    "agriculture"
+  ],
+  "tags": [
+    "forecast",
+    "climate",
+    "temperature",
+    "farming"
+  ],
+  "regions": [
+    "global",
+    "kenya"
+  ],
+  "auth": "none",
+  "cors": true,
+  "license": "CC BY 4.0",
+  "base_url": "https://api.open-meteo.com",
+  "docs_url": "https://open-meteo.com/en/docs",
+  "endpoints": [
+    {
+      "name": "Current weather",
+      "method": "GET",
+      "path": "/v1/forecast",
+      "summary": "Current conditions for a coordinate",
+      "params": [
+        {
+          "name": "latitude",
+          "in": "query",
+          "required": true,
+          "example": "-1.29",
+          "description": ""
+        },
+        {
+          "name": "longitude",
+          "in": "query",
+          "required": true,
+          "example": "36.82",
+          "description": ""
+        },
+        {
+          "name": "current_weather",
+          "in": "query",
+          "required": true,
+          "example": "true",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "name": "Daily forecast",
+      "method": "GET",
+      "path": "/v1/forecast",
+      "summary": "Daily max/min temperature and rainfall",
+      "params": [
+        {
+          "name": "latitude",
+          "in": "query",
+          "required": true,
+          "example": "-1.29",
+          "description": ""
+        },
+        {
+          "name": "longitude",
+          "in": "query",
+          "required": true,
+          "example": "36.82",
+          "description": ""
+        },
+        {
+          "name": "daily",
+          "in": "query",
+          "required": true,
+          "example": "temperature_2m_max,precipitation_sum",
+          "description": ""
+        },
+        {
+          "name": "timezone",
+          "in": "query",
+          "required": true,
+          "example": "Africa/Nairobi",
+          "description": ""
+        }
+      ]
+    }
+  ]
+}

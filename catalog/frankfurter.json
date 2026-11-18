@@ -1,0 +1,47 @@
+{
+  "slug": "frankfurter",
+  "name": "Frankfurter",
+  "description": "Currency exchange rates from the European Central Bank, with historical data and time series.",
+  "categories": [
+    "finance",
+    "data"
+  ],
+  "tags": [
+    "exchange rates",
+    "currency",
+    "ecb",
+    "forex"
+  ],
+  "regions": [
+    "global"
+  ],
+  "auth": "none",
+  "cors": true,
+  "license": "MIT",
+  "base_url": "https://api.frankfurter.app",
+  "docs_url": "https://www.frankfurter.app/docs/",
+  "endpoints": [
+    {
+      "name": "Latest rates",
+      "method": "GET",
+      "path": "/latest",
+      "summary": "Latest rates for a base currency",
+      "params": [
+        {
+          "name": "from",
+          "in": "query",
+          "required": false,
+          "example": "EUR",
+          "description": ""
+        },
+        {
+          "name": "to",
+          "in": "query",
+          "required": false,
+          "example": "USD,GBP",
+          "description": ""
+        }
+      ]
+    }
+  ]
+}

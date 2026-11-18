@@ -1,0 +1,61 @@
+{
+  "slug": "pokeapi",
+  "name": "PokeAPI",
+  "description": "RESTful Pokemon data API, a popular practice target for learning pagination and nested resources.",
+  "categories": [
+    "games",
+    "learning"
+  ],
+  "tags": [
+    "pokemon",
+    "practice",
+    "rest"
+  ],
+  "regions": [
+    "global"
+  ],
+  "auth": "none",
+  "cors": true,
+  "license": "BSD-3-Clause",
+  "base_url": "https://pokeapi.co",
+  "docs_url": "https://pokeapi.co/docs/v2",
+  "endpoints": [
+    {
+      "name": "Get Pokemon",
+      "method": "GET",
+      "path": "/api/v2/pokemon/{name}",
+      "summary": "Details for one Pokemon by name or id",
+      "params": [
+        {
+          "name": "name",
+          "in": "path",
+          "required": true,
+          "example": "pikachu",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "name": "List Pokemon",
+      "method": "GET",
+      "path": "/api/v2/pokemon",
+      "summary": "Paginated list of Pokemon",
+      "params": [
+        {
+          "name": "limit",
+          "in": "query",
+          "required": false,
+          "example": "5",
+          "description": ""
+        },
+        {
+          "name": "offset",
+          "in": "query",
+          "required": false,
+          "example": "0",
+          "description": ""
+        }
+      ]
+    }
+  ]
+}

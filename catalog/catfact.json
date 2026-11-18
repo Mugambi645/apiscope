@@ -1,0 +1,31 @@
+{
+  "slug": "catfact",
+  "name": "Cat Facts",
+  "description": "Tiny API returning random cat facts, useful as a minimal first request in any language.",
+  "categories": [
+    "fun",
+    "testing"
+  ],
+  "tags": [
+    "cats",
+    "random",
+    "hello world"
+  ],
+  "regions": [
+    "global"
+  ],
+  "auth": "none",
+  "cors": true,
+  "license": "MIT",
+  "base_url": "https://catfact.ninja",
+  "docs_url": "https://catfact.ninja",
+  "endpoints": [
+    {
+      "name": "Random fact",
+      "method": "GET",
+      "path": "/fact",
+      "summary": "One random fact",
+      "params": []
+    }
+  ]
+}

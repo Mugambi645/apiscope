@@ -1,0 +1,86 @@
+{
+  "slug": "world-bank",
+  "name": "World Bank Open Data",
+  "description": "Development indicators such as population, GDP and agriculture statistics for every country.",
+  "categories": [
+    "data",
+    "economics",
+    "agriculture"
+  ],
+  "tags": [
+    "indicators",
+    "gdp",
+    "population",
+    "statistics"
+  ],
+  "regions": [
+    "global",
+    "kenya",
+    "africa"
+  ],
+  "auth": "none",
+  "cors": false,
+  "license": "CC BY 4.0",
+  "base_url": "https://api.worldbank.org",
+  "docs_url": "https://datahelpdesk.worldbank.org/knowledgebase/topics/125589",
+  "endpoints": [
+    {
+      "name": "Country profile",
+      "method": "GET",
+      "path": "/v2/country/{code}",
+      "summary": "Metadata for a country",
+      "params": [
+        {
+          "name": "code",
+          "in": "path",
+          "required": true,
+          "example": "KE",
+          "description": ""
+        },
+        {
+          "name": "format",
+          "in": "query",
+          "required": true,
+          "example": "json",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "name": "Indicator series",
+      "method": "GET",
+      "path": "/v2/country/{code}/indicator/{indicator}",
+      "summary": "Time series for an indicator",
+      "params": [
+        {
+          "name": "code",
+          "in": "path",
+          "required": true,
+          "example": "KE",
+          "description": ""
+        },
+        {
+          "name": "indicator",
+          "in": "path",
+          "required": true,
+          "example": "SP.POP.TOTL",
+          "description": ""
+        },
+        {
+          "name": "format",
+          "in": "query",
+          "required": true,
+          "example": "json",
+          "description": ""
+        },
+        {
+          "name": "per_page",
+          "in": "query",
+          "required": false,
+          "example": "5",
+          "description": ""
+        }
+      ]
+    }
+  ]
+}

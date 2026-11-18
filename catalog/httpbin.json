@@ -1,0 +1,55 @@
+{
+  "slug": "httpbin",
+  "name": "httpbin",
+  "description": "HTTP request and response service for inspecting headers, status codes and client behaviour.",
+  "categories": [
+    "testing",
+    "developer-tools"
+  ],
+  "tags": [
+    "http",
+    "debug",
+    "headers",
+    "status codes"
+  ],
+  "regions": [
+    "global"
+  ],
+  "auth": "none",
+  "cors": true,
+  "license": "ISC",
+  "base_url": "https://httpbin.org",
+  "docs_url": "https://httpbin.org",
+  "endpoints": [
+    {
+      "name": "Echo request",
+      "method": "GET",
+      "path": "/get",
+      "summary": "Echoes the request back as JSON",
+      "params": [
+        {
+          "name": "hello",
+          "in": "query",
+          "required": false,
+          "example": "world",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "name": "Status code",
+      "method": "GET",
+      "path": "/status/{code}",
+      "summary": "Returns the status code you ask for",
+      "params": [
+        {
+          "name": "code",
+          "in": "path",
+          "required": true,
+          "example": "200",
+          "description": ""
+        }
+      ]
+    }
+  ]
+}

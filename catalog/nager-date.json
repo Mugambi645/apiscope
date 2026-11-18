@@ -1,0 +1,47 @@
+{
+  "slug": "nager-date",
+  "name": "Nager.Date",
+  "description": "Public holidays for over a hundred countries, handy for scheduling and calendar features.",
+  "categories": [
+    "calendar",
+    "data"
+  ],
+  "tags": [
+    "holidays",
+    "dates",
+    "countries"
+  ],
+  "regions": [
+    "global",
+    "kenya"
+  ],
+  "auth": "none",
+  "cors": true,
+  "license": "MIT",
+  "base_url": "https://date.nager.at",
+  "docs_url": "https://date.nager.at/Api",
+  "endpoints": [
+    {
+      "name": "Public holidays",
+      "method": "GET",
+      "path": "/api/v3/PublicHolidays/{year}/{country}",
+      "summary": "Holidays for a year and ISO country code",
+      "params": [
+        {
+          "name": "year",
+          "in": "path",
+          "required": true,
+          "example": "2026",
+          "description": ""
+        },
+        {
+          "name": "country",
+          "in": "path",
+          "required": true,
+          "example": "KE",
+          "description": ""
+        }
+      ]
+    }
+  ]
+}

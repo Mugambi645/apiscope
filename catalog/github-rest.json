@@ -1,0 +1,47 @@
+{
+  "slug": "github-rest",
+  "name": "GitHub REST API",
+  "description": "Public GitHub data such as users, repositories and issues. Unauthenticated calls are rate limited.",
+  "categories": [
+    "developer-tools",
+    "backend"
+  ],
+  "tags": [
+    "git",
+    "repositories",
+    "users",
+    "issues"
+  ],
+  "regions": [
+    "global"
+  ],
+  "auth": "none",
+  "cors": true,
+  "license": "Proprietary, free tier",
+  "base_url": "https://api.github.com",
+  "docs_url": "https://docs.github.com/en/rest",
+  "endpoints": [
+    {
+      "name": "Get user",
+      "method": "GET",
+      "path": "/users/{username}",
+      "summary": "Public profile of a user",
+      "params": [
+        {
+          "name": "username",
+          "in": "path",
+          "required": true,
+          "example": "mugambi645",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "name": "Zen",
+      "method": "GET",
+      "path": "/zen",
+      "summary": "A random design aphorism",
+      "params": []
+    }
+  ]
+}

@@ -1,0 +1,24 @@
+# One Dockerfile builds every Go service: docker build --build-arg CMD=gateway .
+FROM golang:1.22-alpine AS build
+ARG CMD=gateway
+WORKDIR /src
+COPY go.mod ./
+COPY cmd ./cmd
+COPY internal ./internal
+RUN CGO_ENABLED=0 go build -trimpath -ldflags="-s -w" -o /out/app ./cmd/${CMD}
+
+FROM alpine:3.20 AS runtime
+RUN adduser -D -u 10001 app
+COPY --from=build /out/app /usr/local/bin/app
+COPY catalog /app/catalog
+WORKDIR /app
+USER app
+ENTRYPOINT ["/usr/local/bin/app"]
+
+# The runner needs the docker CLI to start sandbox containers.
+FROM alpine:3.20 AS runner
+RUN apk add --no-cache docker-cli
+COPY --from=build /out/app /usr/local/bin/app
+COPY catalog /app/catalog
+WORKDIR /app
+ENTRYPOINT ["/usr/local/bin/app"]

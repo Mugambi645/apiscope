@@ -1,0 +1,62 @@
+# docker compose up --build   ->   http://localhost:3000
+# Add the code runner too:     docker compose --profile sandbox up --build
+name: apiscope
+
+services:
+  gateway:
+    build: { context: ., dockerfile: Dockerfile.services, target: runtime, args: { CMD: gateway } }
+    environment:
+      PORT: "8080"
+      CATALOG_DIR: /app/catalog
+      PROBE_FILE: /data/probes.json
+      PROBE_INTERVAL_MIN: "30"
+      RUNNER_URL: ${RUNNER_URL:-http://runner:8081}
+      TRUST_PROXY: "false"
+    volumes: [probes:/data]
+    ports: ["8080:8080"]
+    depends_on:
+      runner:
+        condition: service_started
+        required: false
+    healthcheck:
+      test: ["CMD", "wget", "-qO-", "http://localhost:8080/healthz"]
+      interval: 15s
+      timeout: 3s
+      retries: 5
+
+  web:
+    build: { context: ./web, args: { GATEWAY_URL: "http://gateway:8080" } }
+    depends_on: { gateway: { condition: service_healthy } }
+    ports: ["3000:3000"]
+
+  # --- sandbox profile: the code runner and its locked-down egress path ---
+  egress:
+    profiles: [sandbox]
+    build: { context: ., dockerfile: Dockerfile.services, target: runtime, args: { CMD: egress } }
+    environment: { CATALOG_DIR: /app/catalog }
+    networks: [sandbox, default]
+
+  runner:
+    profiles: [sandbox]
+    build: { context: ., dockerfile: Dockerfile.services, target: runner, args: { CMD: runner } }
+    environment:
+      SANDBOX_NETWORK: apiscope_sandbox
+      EGRESS_PROXY_URL: http://egress:3128
+    # SECURITY: mounting the Docker socket is root-equivalent on the host.
+    # Run the runner on a dedicated host or VM; see docs/ARCHITECTURE.md.
+    volumes: ["/var/run/docker.sock:/var/run/docker.sock"]
+    depends_on: [egress]
+    healthcheck:
+      test: ["CMD", "wget", "-qO-", "http://localhost:8081/healthz"]
+      interval: 15s
+      timeout: 3s
+      retries: 5
+
+volumes:
+  probes:
+
+networks:
+  # internal: containers on it have no route to the internet except through egress.
+  sandbox:
+    name: apiscope_sandbox
+    internal: true

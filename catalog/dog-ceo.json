@@ -1,0 +1,46 @@
+{
+  "slug": "dog-ceo",
+  "name": "Dog CEO",
+  "description": "Random dog images by breed, a friendly API for learning image handling and list endpoints.",
+  "categories": [
+    "fun",
+    "learning"
+  ],
+  "tags": [
+    "dogs",
+    "images",
+    "breeds"
+  ],
+  "regions": [
+    "global"
+  ],
+  "auth": "none",
+  "cors": true,
+  "license": "Open source",
+  "base_url": "https://dog.ceo",
+  "docs_url": "https://dog.ceo/dog-api/documentation",
+  "endpoints": [
+    {
+      "name": "Random image",
+      "method": "GET",
+      "path": "/api/breeds/image/random",
+      "summary": "A random dog photo URL",
+      "params": []
+    },
+    {
+      "name": "Breed image",
+      "method": "GET",
+      "path": "/api/breed/{breed}/images/random",
+      "summary": "A random photo of a breed",
+      "params": [
+        {
+          "name": "breed",
+          "in": "path",
+          "required": true,
+          "example": "hound",
+          "description": ""
+        }
+      ]
+    }
+  ]
+}

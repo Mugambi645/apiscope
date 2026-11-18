@@ -1,0 +1,46 @@
+{
+  "slug": "agify",
+  "name": "Agify.io",
+  "description": "Predicts the likely age of a person from a first name, a classic small machine-learning backed API.",
+  "categories": [
+    "ai",
+    "data"
+  ],
+  "tags": [
+    "prediction",
+    "names",
+    "demographics"
+  ],
+  "regions": [
+    "global"
+  ],
+  "auth": "none",
+  "cors": true,
+  "license": "Free tier",
+  "base_url": "https://api.agify.io",
+  "docs_url": "https://agify.io/documentation",
+  "endpoints": [
+    {
+      "name": "Predict age",
+      "method": "GET",
+      "path": "/",
+      "summary": "Estimate age for a name",
+      "params": [
+        {
+          "name": "name",
+          "in": "query",
+          "required": true,
+          "example": "wanjiru",
+          "description": ""
+        },
+        {
+          "name": "country_id",
+          "in": "query",
+          "required": false,
+          "example": "KE",
+          "description": ""
+        }
+      ]
+    }
+  ]
+}

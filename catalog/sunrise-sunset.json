@@ -1,0 +1,62 @@
+{
+  "slug": "sunrise-sunset",
+  "name": "Sunrise Sunset",
+  "description": "Sunrise, sunset and day length for any coordinate and date, useful for farm and logistics planning.",
+  "categories": [
+    "weather",
+    "agriculture"
+  ],
+  "tags": [
+    "sun",
+    "daylight",
+    "solar",
+    "planning"
+  ],
+  "regions": [
+    "global",
+    "kenya"
+  ],
+  "auth": "none",
+  "cors": true,
+  "license": "CC BY 4.0",
+  "base_url": "https://api.sunrise-sunset.org",
+  "docs_url": "https://sunrise-sunset.org/api",
+  "endpoints": [
+    {
+      "name": "Sun times",
+      "method": "GET",
+      "path": "/json",
+      "summary": "Sun times for a place and date",
+      "params": [
+        {
+          "name": "lat",
+          "in": "query",
+          "required": true,
+          "example": "-1.29",
+          "description": ""
+        },
+        {
+          "name": "lng",
+          "in": "query",
+          "required": true,
+          "example": "36.82",
+          "description": ""
+        },
+        {
+          "name": "date",
+          "in": "query",
+          "required": false,
+          "example": "today",
+          "description": ""
+        },
+        {
+          "name": "formatted",
+          "in": "query",
+          "required": false,
+          "example": "0",
+          "description": ""
+        }
+      ]
+    }
+  ]
+}
